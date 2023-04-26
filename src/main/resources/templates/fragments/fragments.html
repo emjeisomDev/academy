@@ -20,40 +20,40 @@
 <script src="https://kit.fontawesome.com/006642858d.js"></script>
 
 </head>
-
 <body>
-
-	<div th:replace="fragments/fragments :: header"></div>
-
-	<section class="neo-section">
-		<div class="shadow"></div>
-
-		<div class="center neo-container">
-		
-			<h1 class="center-text">Sistema de Gerencimento de Alunos</h1>
-
-			<div class="buttons">
-
-				<div class="wm btn-cad">
-					<h5 class="btn">CADASTRAR ALUNO</h5>
-				</div>
-
-				<div class="wm btn-enc">
-					<h5 class="btn">ENCONTRAR ALUNO</h5>
-				</div>
-
-				<div class="clear"></div>
-
-			</div>
-			
-		</div>
-	</section>
 	
+	<header th:fragment="header" >
+		<nav class="navbar navbar-expand-lg navbar-dark navbar-main">
+			<a class="navbar-brand" th:href="@{/}"> 
+				<img alt="site-logo" src="/img/logo.png">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navMobile">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-	<div th:replace="fragments/fragments :: footer"></div>
+			<div id="navMobile" class="navbar-collapse collapse justify-content-end">
+				<a class="bnt-nav nav-item nav-link"><i class="fas fa-home"></i> Home</a> 
+				<a class="bnt-nav nav-item nav-link"><i class="fas fa-user-graduate"></i> Cadastrar Aluno</a> 
+				<a class="bnt-nav nav-item nav-link"><i class="fas fa-search"></i> Pesquisar Aluno</a> 
+				<a class="bnt-nav-sair nav-item nav-link btn-danger"><i class="fas fa-times"></i> SAIR</a>
+			</div>
+
+		</nav>
+	</header>
+	
+	<footer th:fragment="footer" >
+		
+		<div class="footer">
+			<span> Todos os direitos reservados - 2023 &copy;  Emanuel Jeisom</span>
+		</div>
+		
+	</footer>
+
 
 
 	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

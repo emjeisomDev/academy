@@ -9,11 +9,21 @@
 	background: #283593;
 	height: 90px;
 	color: #FFF;
+	text-transform: uppercase;
 }
 
 a{
 	cursor: pointer;
 	font-weight: bold;
+}
+
+#navMobile .bnt-nav:hover{
+	color: #BA68C8;
+}
+
+#navMobile .bnt-nav-sair:hover{
+	background: #FFF;
+	color: #C82333;
 }
 
 .neo-section{
@@ -103,6 +113,32 @@ a{
 	text-align: center;
 	font-size: 1.00em;
 	padding: 5px;
+}
+
+@media screen and (max-width: 990px){
+	
+	.neo-container{
+		margin-top: 80px;
+	}
+	
+	.wm{
+		width: 100%;
+	}
+	
+	.btn-cad{
+		text-align: center;
+		justify-content: center;
+	}
+	
+	.btn-enc{
+		text-align: center;
+		justify-content: center;
+	}
+	
+	.navbar-main{
+		height: 100%
+	}
+	
 }
 
 

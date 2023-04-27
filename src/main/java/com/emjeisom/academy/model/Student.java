@@ -32,6 +32,8 @@ public class Student {
 	@Column(name="status")
 	private Status status;
 	
+	public Student() {}
+	
 	public Student(Integer id, String name, Course course, String registration, Status status) {
 		this.id = id;
 		this.name = name;

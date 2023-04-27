@@ -22,36 +22,64 @@
 </head>
 <body>
 	<div th:replace="fragments/fragments :: header"></div>
-	
+
 	<div class="container">
-		
-		<h4><i class="fas fa-plus"></i> Inserir Alunos</h4>
-		
-		<form method="post" action="/insert-students"  th:object="${student}">
-		
+
+		<h4>
+			<i class="fas fa-plus"></i> Inserir Alunos
+		</h4>
+
+		<form method="post" action="/insert-students" th:object="${student}">
+
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-3">
-					<label>Nome do Aluno</label>
-					<input class="form-control" placeholder="Ex.: John Doe" th:field="*{name}">
+					<label>Nome do Aluno</label> <input class="form-control"
+						placeholder="Ex.: John Doe" th:field="*{name}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Selecione o Curso</label> <select class="form-control">
+						<option
+							th:each="course : ${T(com.emjeisom.academy.enums.Course).values()}"
+							th:value="${course}" th:text="${course}"></option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Gerar Matricula</label> 
+					<input class="form-control" id="registration" th:field="*{registration}">
+					<button type="button" onclick="GenerateRegistration()" class="btn btn-dark reg-button">Gerar</button>
 				</div>
 			</div>
 			
+			
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-3">
-					<label>Selecione o Curso</label>
-					<select class="form-control">
-						<option th:each="course : ${T(com.emjeisom.academy.enums.Course).values()}" th:value="${course}" th:text="${course}"></option>
+					<label>Selecione o Status</label> <select class="form-control">
+						<option
+							th:each="status : ${T(com.emjeisom.academy.enums.Status).values()}"
+							th:value="${status}" th:text="${status}"></option>
 					</select>
 				</div>
 			</div>
 			
-
 			
-		</form>	
-	
+			<div class="row form-submit">
+				<a class="btn btn-outline-danger">VOLTAR</a> &nbsp;
+				<button type="submit" class="btn btn-success">SALVAR</button>
+			</div>
+			
+		</form>
+		
+
 	</div>
-	
+
 	<div th:replace="fragments/fragments :: footer"></div>
+	<script src="/js/main.js"></script>
 	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>

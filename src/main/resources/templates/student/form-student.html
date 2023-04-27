@@ -10,6 +10,7 @@
 <title>Insert Students</title>
 
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/form-student-style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
@@ -23,8 +24,30 @@
 	<div th:replace="fragments/fragments :: header"></div>
 	
 	<div class="container">
-	
 		
+		<h4><i class="fas fa-plus"></i> Inserir Alunos</h4>
+		
+		<form method="post" action="/insert-students"  th:object="${student}">
+		
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Nome do Aluno</label>
+					<input class="form-control" placeholder="Ex.: John Doe" th:field="*{name}">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Selecione o Curso</label>
+					<select class="form-control">
+						<option th:each="course : ${T(com.emjeisom.academy.enums.Course).values()}" th:value="${course}" th:text="${course}"></option>
+					</select>
+				</div>
+			</div>
+			
+
+			
+		</form>	
 	
 	</div>
 	

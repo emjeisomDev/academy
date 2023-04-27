@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.container{
+	height: calc(100vh - 124px);
+	margin-top: 30px;
+}
+
+.container h4{
+	margin-bottom: 30px;
+	border-bottom: 1px solid #808080;
+}
+
+.reg-button{
+	margin-top: 10px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Emanuel Jeisom">
+
+<title>List Students</title>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/form-student-style.css">
+<link rel="stylesheet" href="/css/list-students-style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Work+Sans:wght@200&display=swap"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/fragments :: header"></div>
+	
+	<div class="container">
+		
+		<h3>Ultimos Alunos Selecionados</h3>
+		<hr>
+		
+		<table class="table table-bordered table-hover">
+			
+			<thead>
+				<th scope="col">Id</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Curso</th>
+				<th scope="col">Matricula</th>
+				<th scope="col">Status</th>
+				<th scope="col">Turno</th>
+			</thead>
+			
+			<tbody>
+				<tr scope="row" th:each=" students : ${ studentList } ">
+				
+					<td th:text="${ students.id }" ></td>
+					<td th:text="${ students.name }" ></td>
+					<td th:text="${ students.course }" ></td>
+					<td th:text="${ students.registration }" ></td>
+					<td th:text="${ students.status }" ></td>
+					<td th:text="${ students.shift }" ></td>
+				
+				</tr>
+			</tbody>
+		
+		</table>
+	
+	</div>
+	
+	
+	
+	
+
+	<div th:replace="fragments/fragments :: footer"></div>
+	<script src="/js/main.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

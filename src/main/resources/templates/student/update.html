@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Emanuel Jeisom">
+
+<title>Update Students</title>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/form-student-style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Work+Sans:wght@200&display=swap"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/fragments :: header"></div>
+
+	<div class="container">
+
+		<h4>
+			<i class="fas fa-plus"></i> Atualizar Aluno
+		</h4>
+
+		<form method="post" action="/update" th:object="${student}" autocomplete="off">
+
+			<input type="hidden" th:field="*{id}">
+
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Nome do Aluno</label> <input class="form-control"
+						placeholder="Ex.: John Doe" th:field="*{name}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Selecione o Curso</label> 
+					<select class="form-control" th:field="*{course}">
+						<option
+							th:each="course : ${T(com.emjeisom.academy.enums.Course).values()}"
+							th:value="${course}" th:text="${course}"></option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Gerar Matricula</label> 
+					<input readonly="readonly" class="form-control" id="registration" th:field="*{registration}">
+					<button type="button" onclick="GenerateRegistration()" class="btn btn-dark reg-button">Gerar</button>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Selecione o Status</label> 
+					<select class="form-control" th:field="*{status}">
+						<option
+							th:each="status : ${T(com.emjeisom.academy.enums.Status).values()}"
+							th:value="${status}" th:text="${status}"></option>
+					</select>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Turno</label> 
+					<input class="form-control" placeholder="manhã, tarde, noite" th:field="*{shift}">
+				</div>
+			</div>
+			
+			
+			<div class="row form-submit">
+				<a class="btn btn-outline-danger">VOLTAR</a> &nbsp;
+				<button type="submit" class="btn btn-success">SALVAR</button>
+			</div>
+			
+		</form>
+		
+
+	</div>
+
+	<div th:replace="fragments/fragments :: footer"></div>
+	<script src="/js/main.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

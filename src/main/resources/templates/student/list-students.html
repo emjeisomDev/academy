@@ -32,24 +32,34 @@
 		<table class="table table-bordered table-hover">
 			
 			<thead>
-				<th scope="col">Id</th>
 				<th scope="col">Nome</th>
 				<th scope="col">Curso</th>
 				<th scope="col">Matricula</th>
 				<th scope="col">Status</th>
 				<th scope="col">Turno</th>
+				<th scope="col">Ação</th>
 			</thead>
 			
 			<tbody>
 				<tr scope="row" th:each=" students : ${ studentList } ">
 				
-					<td th:text="${ students.id }" ></td>
 					<td th:text="${ students.name }" ></td>
 					<td th:text="${ students.course }" ></td>
 					<td th:text="${ students.registration }" ></td>
 					<td th:text="${ students.status }" ></td>
 					<td th:text="${ students.shift }" ></td>
 				
+					<td> 
+						<a class="btn btn-primary" th:href="@{update/{id}(id=${ students.id })}"> 
+							<i class="fas fa-edit"></i>  
+							Editar
+						</a> 
+						<a class="btn btn-danger" th:href="@{delete/{id}(id=${ students.id })}"> 
+							<i class="far fa-times-circle"></i>
+							Excluir
+						</a> 
+					</td>
+					
 				</tr>
 			</tbody>
 		

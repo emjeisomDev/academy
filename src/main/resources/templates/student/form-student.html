@@ -40,7 +40,8 @@
 
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-3">
-					<label>Selecione o Curso</label> <select class="form-control">
+					<label>Selecione o Curso</label> 
+					<select class="form-control" th:field="*{course}">
 						<option
 							th:each="course : ${T(com.emjeisom.academy.enums.Course).values()}"
 							th:value="${course}" th:text="${course}"></option>
@@ -59,11 +60,20 @@
 			
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-3">
-					<label>Selecione o Status</label> <select class="form-control">
+					<label>Selecione o Status</label> 
+					<select class="form-control" th:field="*{status}">
 						<option
 							th:each="status : ${T(com.emjeisom.academy.enums.Status).values()}"
 							th:value="${status}" th:text="${status}"></option>
 					</select>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Turno</label> 
+					<input class="form-control" placeholder="manhã, tarde, noite" th:field="*{shift}">
 				</div>
 			</div>
 			

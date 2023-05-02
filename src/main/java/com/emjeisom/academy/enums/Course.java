@@ -13,5 +13,9 @@ public enum Course {
 	private Course(String course) {
 		this.course = course;
 	}
-	
+
+	public String getCourse() {
+		return course;
+	}
+		
 }

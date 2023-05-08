@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Emanuel Jeisom">
+
+<title>Encontrar alunos</title>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/form-student-style.css">
+<link rel="stylesheet" href="/css/student-filter-style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Work+Sans:wght@200&display=swap"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/fragments :: header"></div>
+
+	<div class="container">
+		<h4> <i class="fas fa-plus"></i> Encontrar alunos </h4>
+		
+		<form method="post" action="">
+			
+			<div class="input-group col-6 offset-3">
+				
+				<input class="form-control" placeholder="Busque pelo nome do aluno...">
+				<div class="input-group-append">
+					<button type="submit" class="btn btn-outline-secondary">Pesquisar</button>
+				</div>
+			
+			</div>
+		
+		</form>
+		
+		
+		<div class="row">
+			
+			<div class="card ml-3">
+				
+				<img class="card-img-top" alt="alunos ativos" src="" >
+				<div class="card-body">
+					<h5 class="card-title">Alunos Ativos no Sistema</h5>
+					<p class="card-text">Busque por todos alunos que estão ativos no sistema.</p>
+					<a class="btn btn-outline-primary">Clique Aqui!</a>
+				</div>
+				
+			</div>
+			
+			<div class="card ml-3">
+				
+				<img class="card-img-top" th:href="@{/active-students}" alt="alunos ativos" src="" >
+				<div class="card-body">
+					<h5 class="card-title">Alunos Inativos no Sistema</h5>
+					<p class="card-text">Busque por todos alunos que estão inativos no sistema.</p>
+					<a th:href="@{/active-students}" class="btn btn-outline-primary">Clique Aqui!</a>
+				</div>
+				
+			</div>
+			
+			<div class="card ml-3">
+				
+				<img class="card-img-top" alt="alunos ativos" src="" >
+				<div class="card-body">
+					<h5 class="card-title">Alunos Cancelados no Sistema</h5>
+					<p class="card-text">Busque por todos alunos que estão cancelados no sistema.</p>
+					<a class="btn btn-outline-primary">Clique Aqui!</a>
+				</div>
+				
+			</div>
+			
+			<div class="card mt-3 ml-3">
+				
+				<img class="card-img-top" alt="alunos ativos" src="" >
+				<div class="card-body">
+					<h5 class="card-title">Alunos Trancados no Sistema</h5>
+					<p class="card-text">Busque por todos alunos que estão trancados no sistema.</p>
+					<a class="btn btn-outline-primary">Clique Aqui!</a>
+				</div>
+				
+			</div>
+		
+		</div>
+		
+		
+	</div>
+
+	<div th:replace="fragments/fragments :: footer"></div>
+	<script src="/js/main.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

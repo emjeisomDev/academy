@@ -32,6 +32,13 @@ public class StudentController {
 		return mv;
 	}
 	
+	@GetMapping("/student-filter")
+	public ModelAndView studentsFilterPage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("student/student-filter");
+		return mv;
+	}
+	
 	@GetMapping("/update/{id}")
 	public ModelAndView update(@PathVariable("id") Integer id) {
 		ModelAndView mv = new ModelAndView();
@@ -61,6 +68,14 @@ public class StudentController {
 		ModelAndView mv = new ModelAndView();
 		studentRepository.save(student);
 		mv.setViewName("redirect:/list-students");
+		return mv;
+	}
+	
+	@GetMapping("/active-students")
+	public ModelAndView getStudentsActives(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("student/active-students");
+		mv.addObject("studentActives", studentRepository.findByStatusActive());
 		return mv;
 	}
 	
